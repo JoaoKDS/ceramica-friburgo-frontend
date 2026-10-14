@@ -994,3 +994,126 @@ footer {
     flex-basis: 100%;
   }
 }
+   .painel-orcamento {
+  scroll-margin-top: 76px;
+}
+
+.painel-orcamento .painel-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.painel-orcamento .painel-topo h2 {
+  margin-bottom: 0;
+}
+
+.btn-fechar-painel {
+  border: none;
+  background: #f0e7da;
+  color: #b34700;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btn-fechar-painel:hover {
+  background: #ffe8d6;
+}
+
+/* Botão "Adicionar" depois de clicado: "✓ Adicionado!" */
+.btn-adicionar.adicionado {
+  background: #1b5e20;
+}
+
+/* Botão "Tentar novamente" quando o catálogo não carrega */
+.btn-tentar-novamente {
+  margin-top: 14px;
+  padding: 11px 22px;
+  border: none;
+  border-radius: 999px;
+  background: #b34700;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.btn-tentar-novamente:hover {
+  background: #8f3800;
+}
+
+/* Topo no computador: links do menu e, depois deles, o botão "Orçamento"
+   no canto direito (como era antes). No celular nada muda. */
+@media (min-width: 761px) {
+  .menu {
+    order: 1;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+
+  .topo-direita {
+    order: 2;
+  }
+}
+
+/* Topo no celular: logo + botão "Orçamento" + ☰ numa linha só
+   (antes quebrava em duas linhas e ocupava mais de 100px da tela). */
+@media (max-width: 520px) {
+  .topo-conteudo {
+    flex-wrap: nowrap;
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .logo {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .logo-img {
+    height: 34px;
+  }
+
+  .logo span {
+    font-size: 1rem;
+    line-height: 1.1;
+  }
+
+  .topo-direita {
+    flex-shrink: 0;
+    gap: 4px;
+  }
+
+  .btn-badge-topo {
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
+  .btn-hamburguer {
+    padding: 4px 6px;
+  }
+}
+
+/* Celulares bem pequenos (320 a 360px) */
+@media (max-width: 360px) {
+  .logo span {
+    font-size: 0.85rem;
+  }
+
+  .btn-badge-topo {
+    padding: 7px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Campo de busca: mantém o visual de antes mesmo sendo type="search" */
+.busca input[type='search'] {
+  -webkit-appearance: none;
+  appearance: none;
+}
