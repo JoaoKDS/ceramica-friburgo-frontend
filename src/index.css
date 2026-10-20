@@ -1260,3 +1260,78 @@ footer[id] {
   flex-direction: column;
   gap: 8px;
 }
+
+/* ===== ACABAMENTOS: selos do banner, "Mais pedido" e rótulo do WhatsApp ===== */
+
+/* 3 selos pequenos embaixo do botão do banner */
+.banner-selos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.banner-selos li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.banner-selos li::before {
+  content: '✓';
+  font-weight: 800;
+}
+
+/* Selo "Mais pedido" em cima da foto do produto */
+.foto {
+  position: relative;
+}
+
+.selo-mais-pedido {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #b34700;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Botão flutuante do WhatsApp: no computador mostra "Fale conosco";
+   no celular continua só o ícone redondo (não cobre o conteúdo). */
+.whatsapp-icone {
+  line-height: 1;
+}
+
+.whatsapp-rotulo {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .whatsapp-flutuante {
+    width: auto;
+    padding: 0 22px 0 18px;
+    border-radius: 999px;
+    gap: 10px;
+  }
+
+  .whatsapp-rotulo {
+    display: inline;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+}

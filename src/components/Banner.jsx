@@ -10,6 +10,11 @@ export function Banner() {
         com o melhor preço da região. Faça seu orçamento em 1 minuto pelo WhatsApp.
       </p>
       <a href="#catalogo" className="btn-banner">Ver catálogo 🧱</a>
+      <ul className="banner-selos">
+        <li>+{ANOS_NO_MERCADO} anos de tradição</li>
+        <li>Entrega em Campinas e região</li>
+        <li>Orçamento em 1 minuto pelo WhatsApp</li>
+      </ul>
     </section>
   )
 }

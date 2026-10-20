@@ -1,6 +1,9 @@
-import { EMOJIS_POR_CATEGORIA } from '../constants'
+import { EMOJIS_POR_CATEGORIA, MAIS_VENDIDOS } from '../constants'
+import { normalizar } from '../utils/busca'
 import { PainelOrcamento } from './PainelOrcamento'
 import { CampoQuantidade } from './CampoQuantidade'
+
+const MAIS_VENDIDOS_NORMALIZADOS = new Set(MAIS_VENDIDOS.map(normalizar))
 
 export function Catalogo({
   mostrarOrcamento,
@@ -79,6 +82,9 @@ export function Catalogo({
           return (
             <div className="card" key={produto.id}>
               <div className="foto">
+                {MAIS_VENDIDOS_NORMALIZADOS.has(normalizar(produto.nome)) && (
+                  <span className="selo-mais-pedido">★ Mais pedido</span>
+                )}
                 {EMOJIS_POR_CATEGORIA[produto.categoria] || '🏗️'}
               </div>
               <span className="badge">{produto.categoria}</span>

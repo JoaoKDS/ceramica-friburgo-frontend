@@ -25,4 +25,14 @@ export const FOTOS = [
   '/foto-empresa.jpeg',
 ]
 
+// Produtos que ganham o selo "Mais pedido" no catálogo.
+// É só escrever o nome do produto como está no cadastro (não importa se é
+// "x" ou "×", nem acento ou maiúscula). Para tirar ou colocar um selo,
+// basta apagar ou acrescentar uma linha aqui.
+export const MAIS_VENDIDOS = [
+  'Bloco Estrutural 14x19x29',
+  'Bloco Cerâmico 11,5x14x24 (Bloquinho 6F)',
+  'Bloco Cerâmico 14x19x29 (Blocão 9F)',
+]
+
 export const CHAVE_CARRINHO = 'ceramica-friburgo-orcamento'

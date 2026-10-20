@@ -9,7 +9,8 @@ export function WhatsappFlutuante() {
       rel="noreferrer"
       aria-label="Abrir conversa no WhatsApp"
     >
-      💬
+      <span className="whatsapp-icone" aria-hidden="true">💬</span>
+      <span className="whatsapp-rotulo">Fale conosco</span>
     </a>
   )
 }
