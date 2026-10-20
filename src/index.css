@@ -76,8 +76,6 @@ body {
 }
 
 /* ===== BANNER ===== */
-/* ===== SUBSTITUA a regra .banner existente no seu CSS por esta versão ===== */
-
 .banner {
   position: relative;
   overflow: hidden;
@@ -796,7 +794,7 @@ footer {
   background: #b34700;
 }
 
-/* ===== ADICIONAR ESTAS REGRAS NO FINAL DO SEU ARQUIVO CSS ===== */
+/* ===== MENSAGENS DE ERRO DO FORMULÁRIO ===== */
 
 /* Mensagem de erro embaixo de cada campo do formulário */
 .campo-formulario {
@@ -817,7 +815,7 @@ footer {
   font-weight: 600;
 }
 
-/* ===== AJUSTES VISUAIS — cole no final do seu arquivo CSS ===== */
+/* ===== AJUSTES VISUAIS ===== */
 
 /* 1. Mais respiro entre o texto e a lista de checks em "Quem somos" */
 .sobre-lista {
@@ -878,6 +876,7 @@ footer {
   font-family: inherit;
   /* remove as setinhas padrão do input number para ficar mais limpo */
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .seletor-quantidade input::-webkit-outer-spin-button,
@@ -901,6 +900,7 @@ footer {
   outline: none;
   font-family: inherit;
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .input-quantidade-carrinho::-webkit-outer-spin-button,
@@ -994,7 +994,32 @@ footer {
     flex-basis: 100%;
   }
 }
-   .painel-orcamento {
+
+/* ===== MELHORIAS: orçamento, erro de catálogo, topo ===== */
+
+/* O topo do site fica fixo na tela. Sem isso, ao clicar num link do menu
+   (ou ao abrir o orçamento), o topo da seção ficava escondido atrás dele. */
+section[id],
+main[id],
+footer[id] {
+  scroll-margin-top: 76px;
+}
+
+/* Texto só para leitores de tela (os rótulos dos campos) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Cabeçalho do painel de orçamento: título + botão de fechar */
+.painel-orcamento {
   scroll-margin-top: 76px;
 }
 
@@ -1116,4 +1141,122 @@ footer {
 .busca input[type='search'] {
   -webkit-appearance: none;
   appearance: none;
+}
+
+/* ===== VISUAL: números, checks, benefícios, painel vazio e cards ===== */
+
+/* "Como funciona": número dentro de um círculo laranja
+   (no lugar dos emojis azuis, que destoavam da cor do site) */
+.passo-numero {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #b34700;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  box-shadow: 0 4px 10px rgba(179, 71, 0, 0.25);
+}
+
+/* "Quem somos": check laranja desenhado (igual em qualquer celular) */
+.sobre-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sobre-lista li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #ffe8d6
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.7 2.7L12 5.5' fill='none' stroke='%23b34700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+}
+
+/* "Por que escolher": 4 benefícios do mesmo tamanho, alinhados */
+.porque-motivos {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1000px;
+  gap: 14px;
+}
+
+.porque-motivos .motivo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 14px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.motivo-icone {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .porque-motivos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .porque-motivos {
+    grid-template-columns: 1fr;
+  }
+
+  .porque-motivos .motivo {
+    flex-direction: row;
+    gap: 14px;
+    padding: 14px 18px;
+    text-align: left;
+  }
+}
+
+/* Painel de orçamento vazio: mais compacto, não empurra os produtos pra baixo */
+.painel-orcamento-vazio {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.painel-orcamento-vazio h2 {
+  font-size: 1.15rem;
+}
+
+.painel-orcamento-vazio .painel-topo {
+  margin-bottom: 4px;
+}
+
+.painel-orcamento-vazio .vazio {
+  padding: 8px 0 4px;
+}
+
+/* Catálogo: frase de apoio embaixo do título */
+.catalogo-subtitulo {
+  margin: -16px 0 24px;
+  text-align: center;
+  color: #888;
+}
+
+/* Cards: quantidade + botão sempre colados na base do card,
+   mesmo quando o nome do produto ocupa 1 ou 2 linhas */
+.card h3 {
+  line-height: 1.3;
+}
+
+.card-acoes {
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
