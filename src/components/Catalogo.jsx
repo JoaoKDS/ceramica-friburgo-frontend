@@ -1,9 +1,28 @@
+import { useState } from 'react'
 import { EMOJIS_POR_CATEGORIA, MAIS_VENDIDOS } from '../constants'
 import { normalizar } from '../utils/busca'
 import { PainelOrcamento } from './PainelOrcamento'
 import { CampoQuantidade } from './CampoQuantidade'
 
 const MAIS_VENDIDOS_NORMALIZADOS = new Set(MAIS_VENDIDOS.map(normalizar))
+
+// Mostra a foto do produto (campo "foto" do cadastro). Se não houver foto, ou se o
+// arquivo não for encontrado, mostra o emoji da categoria.
+function FotoDoProduto({ produto }) {
+  const [falhou, setFalhou] = useState(false)
+
+  if (produto.foto && !falhou) {
+    return (
+      <img
+        src={produto.foto}
+        alt={produto.nome}
+        loading="lazy"
+        onError={() => setFalhou(true)}
+      />
+    )
+  }
+  return EMOJIS_POR_CATEGORIA[produto.categoria] || '🏗️'
+}
 
 export function Catalogo({
   mostrarOrcamento,
@@ -85,7 +104,7 @@ export function Catalogo({
                 {MAIS_VENDIDOS_NORMALIZADOS.has(normalizar(produto.nome)) && (
                   <span className="selo-mais-pedido">★ Mais pedido</span>
                 )}
-                {EMOJIS_POR_CATEGORIA[produto.categoria] || '🏗️'}
+                <FotoDoProduto produto={produto} />
               </div>
               <span className="badge">{produto.categoria}</span>
               <h3>{produto.nome}</h3>

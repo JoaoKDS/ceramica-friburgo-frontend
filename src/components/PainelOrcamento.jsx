@@ -1,8 +1,43 @@
+import {
+  ENTREGA_CAMPINAS_PECAS,
+  ENTREGA_REGIAO_PECAS,
+  HORARIO_ATENDIMENTO,
+  PEDIDO_MINIMO_PECAS,
+} from '../constants'
 import { CampoQuantidade } from './CampoQuantidade'
+
+const numero = n => n.toLocaleString('pt-BR')
+
+// Aviso informativo conforme o tamanho do pedido (não bloqueia o envio).
+function avisoDoPedido(total) {
+  if (total <= PEDIDO_MINIMO_PECAS) {
+    return {
+      tipo: 'atencao',
+      texto: `O pedido mínimo é acima de ${numero(PEDIDO_MINIMO_PECAS)} peças e seu orçamento tem ${numero(total)}. Ajuste as quantidades ou fale com a gente pelo WhatsApp.`,
+    }
+  }
+  if (total <= ENTREGA_CAMPINAS_PECAS) {
+    return {
+      tipo: 'info',
+      texto: `Entregamos em Campinas em pedidos acima de ${numero(ENTREGA_CAMPINAS_PECAS)} peças e na região acima de ${numero(ENTREGA_REGIAO_PECAS)}. Com a quantidade atual, a retirada é na fábrica (${HORARIO_ATENDIMENTO.toLowerCase()}).`,
+    }
+  }
+  if (total <= ENTREGA_REGIAO_PECAS) {
+    return {
+      tipo: 'ok',
+      texto: `Seu pedido tem quantidade para entrega em Campinas. Para a região, a entrega é em pedidos acima de ${numero(ENTREGA_REGIAO_PECAS)} peças. O frete é combinado pelo WhatsApp.`,
+    }
+  }
+  return {
+    tipo: 'ok',
+    texto: 'Seu pedido tem quantidade para entrega em Campinas e região. O frete é combinado pelo WhatsApp.',
+  }
+}
 
 export function PainelOrcamento({
   carrinho,
   temGrandeQuantidade,
+  totalPecas,
   alterarQuantidade,
   definirQuantidadeNoCarrinho,
   removerDoCarrinho,
@@ -16,6 +51,8 @@ export function PainelOrcamento({
   enviarOrcamentoWhatsApp,
   onFechar,
 }) {
+  const aviso = carrinho.length > 0 ? avisoDoPedido(totalPecas) : null
+
   return (
     <section
       className={
@@ -86,6 +123,12 @@ export function PainelOrcamento({
             </div>
           ))}
 
+          {aviso && (
+            <p className={`aviso-pedido aviso-pedido-${aviso.tipo}`} role="status">
+              {aviso.texto}
+            </p>
+          )}
+
           {temGrandeQuantidade && (
             <p className="aviso-milheiro">
               ⚠️ Você tem itens acima de 1.000 peças — grandes quantidades
@@ -123,7 +166,7 @@ export function PainelOrcamento({
                 id="orcamento-endereco"
                 name="endereco"
                 autoComplete="street-address"
-                placeholder="Endereço de entrega *"
+                placeholder='Endereço de entrega (ou "retirada na fábrica") *'
                 value={endereco}
                 onChange={e => setEndereco(e.target.value)}
                 aria-invalid={Boolean(errosFormulario.endereco)}

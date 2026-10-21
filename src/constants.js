@@ -37,4 +37,10 @@ export const MAIS_VENDIDOS = [
 
 export const HORARIO_ATENDIMENTO = 'Segunda a sexta, das 7h às 16h'
 
+// Regras de quantidade (usadas no aviso do orçamento e no FAQ).
+// Para mudar uma regra, é só trocar o número aqui.
+export const PEDIDO_MINIMO_PECAS = 100 // o pedido precisa ser acima disso
+export const ENTREGA_CAMPINAS_PECAS = 1000 // entrega em Campinas acima disso
+export const ENTREGA_REGIAO_PECAS = 2000 // entrega na região acima disso
+
 export const CHAVE_CARRINHO = 'ceramica-friburgo-orcamento'

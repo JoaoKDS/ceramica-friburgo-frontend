@@ -1,11 +1,19 @@
-import { HORARIO_ATENDIMENTO, WHATSAPP_NUMERO } from '../constants'
+import {
+  ENTREGA_CAMPINAS_PECAS,
+  ENTREGA_REGIAO_PECAS,
+  HORARIO_ATENDIMENTO,
+  PEDIDO_MINIMO_PECAS,
+  WHATSAPP_NUMERO,
+} from '../constants'
+
+const numero = n => n.toLocaleString('pt-BR')
 
 // Para mudar, tirar ou acrescentar uma pergunta, é só editar esta lista.
 const PERGUNTAS = [
   {
     pergunta: 'Vocês entregam? Em quais regiões?',
     resposta:
-      'Sim, entregamos em Campinas e região. Em Campinas, a entrega é feita em pedidos acima de 1.000 blocos; na região, em pedidos acima de 2.000 blocos.',
+      `Sim, entregamos em Campinas e região. Em Campinas, a entrega é feita em pedidos acima de ${numero(ENTREGA_CAMPINAS_PECAS)} blocos; na região, em pedidos acima de ${numero(ENTREGA_REGIAO_PECAS)} blocos.`,
   },
   {
     pergunta: 'Quanto custa a entrega?',
@@ -32,7 +40,7 @@ const PERGUNTAS = [
   },
   {
     pergunta: 'Existe quantidade mínima por pedido?',
-    resposta: 'Atendemos pedidos acima de 100 blocos.',
+    resposta: `Atendemos pedidos acima de ${numero(PEDIDO_MINIMO_PECAS)} blocos.`,
   },
   {
     pergunta: 'Como funciona o pagamento e a confirmação do pedido?',
