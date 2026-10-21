@@ -35,4 +35,6 @@ export const MAIS_VENDIDOS = [
   'Bloco Cerâmico 14x19x29 (Blocão 9F)',
 ]
 
+export const HORARIO_ATENDIMENTO = 'Segunda a sexta, das 7h às 16h'
+
 export const CHAVE_CARRINHO = 'ceramica-friburgo-orcamento'

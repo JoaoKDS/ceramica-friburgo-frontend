@@ -1,4 +1,4 @@
-import { WHATSAPP_NUMERO } from '../constants'
+import { HORARIO_ATENDIMENTO, WHATSAPP_NUMERO } from '../constants'
 
 // Dados de contato num lugar só: para mudar telefone, e-mail, horário ou
 // endereço, é só editar aqui em cima.
@@ -6,7 +6,6 @@ const TELEFONE_FIXO = '(19) 3266-0508'
 const TELEFONE_FIXO_LINK = 'tel:+551932660508'
 const TELEFONE_WHATSAPP = '(19) 99336-9208'
 const EMAIL = 'olariafriburgo@gmail.com'
-const HORARIO = 'Segunda a sexta, das 7h às 16h'
 const ENDERECO = 'Res. São José, Campinas - SP'
 const CODIGO_DO_LOCAL = '2RJC+P7' // "Plus Code" do Google Maps
 
@@ -41,7 +40,7 @@ export function Footer() {
 
         <div>
           <h4>Atendimento</h4>
-          <p>🕖 {HORARIO}</p>
+          <p>🕖 {HORARIO_ATENDIMENTO}</p>
           <p>🚚 Entrega na região — consulte</p>
         </div>
 

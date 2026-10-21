@@ -27,7 +27,7 @@ export function Sobre() {
             sem intermediários, com preço justo e entrega na região.
           </p>
           <ul className="sobre-lista">
-            <li>Produto artesanal de qualidade comprovada</li>
+            <li>Cerâmica vermelha de qualidade, produzida em fornos industriais</li>
             <li>Atendimento direto com quem entende do assunto</li>
             <li>Orçamento rápido pelo WhatsApp</li>
             <li>Grandes quantidades com condições especiais</li>

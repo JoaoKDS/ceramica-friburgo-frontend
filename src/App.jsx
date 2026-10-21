@@ -11,6 +11,7 @@ import { ParaSuaObra } from './components/ParaSuaObra'
 import { ComoFunciona } from './components/ComoFunciona'
 import { PorQueEscolher } from './components/PorQueEscolher'
 import { Catalogo } from './components/Catalogo'
+import { Faq } from './components/Faq'
 import { Footer } from './components/Footer'
 import { WhatsappFlutuante } from './components/WhatsappFlutuante'
 
@@ -150,6 +151,7 @@ function App() {
         adicionarAoCarrinho={adicionarAoCarrinho}
       />
 
+      <Faq />
       <Footer />
       <WhatsappFlutuante />
     </div>

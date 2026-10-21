@@ -32,6 +32,7 @@ export function Header({ totalItens, abrirOrcamento, menuAberto, setMenuAberto }
           <a href="#sobre" onClick={() => setMenuAberto(false)}>Sobre</a>
           <a href="#catalogo" onClick={() => setMenuAberto(false)}>Catálogo</a>
           <a href="#como-funciona" onClick={() => setMenuAberto(false)}>Como funciona</a>
+          <a href="#duvidas" onClick={() => setMenuAberto(false)}>Dúvidas</a>
           <a href="#contato" onClick={() => setMenuAberto(false)}>Contato</a>
         </nav>
       </div>

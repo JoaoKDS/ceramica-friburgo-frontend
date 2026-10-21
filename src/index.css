@@ -1377,3 +1377,235 @@ footer[id] {
   border-radius: 12px;
   background: #453729;
 }
+
+/* ===== DÚVIDAS FREQUENTES (FAQ) ===== */
+.faq {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 24px 24px 72px;
+  text-align: center;
+}
+
+.faq h2 {
+  color: #b34700;
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.faq-subtitulo {
+  color: #888;
+  margin-bottom: 28px;
+}
+
+.faq-lista {
+  text-align: left;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  color: #b34700;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: '\2212';
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid #b34700;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.faq-item p {
+  padding: 0 20px 18px;
+  color: #555;
+  line-height: 1.65;
+}
+
+.faq-contato {
+  margin-top: 32px;
+  color: #666;
+}
+
+.btn-faq-whatsapp {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 13px 28px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn-faq-whatsapp:hover {
+  background: #1ebe5a;
+}
+
+/* ===== PERGUNTAS FREQUENTES (FAQ) ===== */
+.faq {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+
+.faq h2 {
+  text-align: center;
+  color: #b34700;
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+}
+
+.faq-subtitulo {
+  text-align: center;
+  color: #888;
+  margin-bottom: 28px;
+}
+
+.faq-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.15s;
+}
+
+.faq-item[open] {
+  border-color: #ffe8d6;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 10px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  color: #b34700;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item summary:hover {
+  color: #b34700;
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid #b34700;
+  outline-offset: 2px;
+}
+
+.faq-item p {
+  padding: 0 20px 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.faq-contato {
+  margin-top: 24px;
+  text-align: center;
+  color: #666;
+}
+
+.faq-contato a {
+  color: #b34700;
+  font-weight: 700;
+}
+
+/* Topo em telas médias (tablet / janela estreita): com o link "Dúvidas" o menu
+   ficou maior, então o espaçamento aperta um pouco para tudo caber numa linha. */
+@media (min-width: 761px) and (max-width: 1000px) {
+  .menu {
+    gap: 14px;
+    margin-right: 12px;
+  }
+
+  .menu a {
+    font-size: 0.88rem;
+  }
+
+  .btn-badge-topo {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .logo span {
+    font-size: 1.05rem;
+  }
+}
+
+/* Janelas bem estreitas de computador (761 a 820px): aperta mais um pouco */
+@media (min-width: 761px) and (max-width: 820px) {
+  .topo-conteudo {
+    padding: 12px 16px;
+  }
+
+  .menu {
+    gap: 10px;
+    margin-right: 8px;
+  }
+
+  .menu a {
+    font-size: 0.82rem;
+  }
+
+  .logo span {
+    font-size: 0.95rem;
+  }
+
+  .btn-badge-topo {
+    padding: 7px 10px;
+    font-size: 0.8rem;
+  }
+}
