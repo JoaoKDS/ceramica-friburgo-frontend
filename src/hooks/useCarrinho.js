@@ -76,8 +76,12 @@ export function useCarrinho() {
     }))
   }
 
-  function adicionarAoCarrinho(produto) {
-    const quantidade = obterQuantidadeSelecionada(produto.id)
+  // quantidadeFixa é opcional: a calculadora de m² usa para adicionar a
+  // quantidade calculada em vez da que está no seletor do card.
+  function adicionarAoCarrinho(produto, quantidadeFixa) {
+    const quantidade = Number.isInteger(quantidadeFixa) && quantidadeFixa >= 1
+      ? quantidadeFixa
+      : obterQuantidadeSelecionada(produto.id)
 
     setCarrinho(atual => {
       const jaEstaNoCarrinho = atual.some(item => item.id === produto.id)

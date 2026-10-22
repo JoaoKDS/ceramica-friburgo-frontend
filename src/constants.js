@@ -9,6 +9,15 @@ export const API_URL =
 export const WHATSAPP_NUMERO = '5519993369208'
 export const ANOS_NO_MERCADO = 30
 
+// Tabela da calculadora de m² (peças por m² de parede, conforme a tabela da
+// fábrica). "chave" é um pedaço do nome do produto no catálogo, sem acento.
+export const CALCULADORA_BLOCOS = [
+  { chave: 'bloquinho', emPe: 30, deitado: 36 },
+  { chave: 'baiano', emPe: 28, deitado: 58 },
+  { chave: 'blocao', emPe: 18, deitado: 25 },
+]
+export const AREA_MAXIMA_M2 = 20000
+
 export const EMOJIS_POR_CATEGORIA = {
   'Blocos Cerâmicos': '🧱',
   'Blocos Estruturais': '🏗️',

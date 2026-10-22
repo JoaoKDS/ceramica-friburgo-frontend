@@ -3,6 +3,9 @@ import { EMOJIS_POR_CATEGORIA, MAIS_VENDIDOS } from '../constants'
 import { normalizar } from '../utils/busca'
 import { PainelOrcamento } from './PainelOrcamento'
 import { CampoQuantidade } from './CampoQuantidade'
+import { normalizarFoto } from '../utils/foto'
+import { Icone } from './Icones'
+import { CalculadoraM2 } from './CalculadoraM2'
 
 const MAIS_VENDIDOS_NORMALIZADOS = new Set(MAIS_VENDIDOS.map(normalizar))
 
@@ -14,7 +17,7 @@ function FotoDoProduto({ produto }) {
   if (produto.foto && !falhou) {
     return (
       <img
-        src={produto.foto}
+        src={normalizarFoto(produto.foto)}
         alt={produto.nome}
         loading="lazy"
         onError={() => setFalhou(true)}
@@ -41,6 +44,7 @@ export function Catalogo({
   definirQuantidadeSelecionada,
   incrementarQuantidadeSelecionada,
   adicionarAoCarrinho,
+  produtos,
 }) {
   return (
     <main className="container" id="catalogo">
@@ -51,6 +55,8 @@ export function Catalogo({
 
       {mostrarOrcamento && <PainelOrcamento {...carrinhoProps} />}
 
+      <CalculadoraM2 produtos={produtos} adicionarAoCarrinho={adicionarAoCarrinho} />
+
       <div className="busca">
         <label htmlFor="busca-produto" className="sr-only">
           Buscar produto
@@ -60,7 +66,7 @@ export function Catalogo({
           id="busca-produto"
           name="busca"
           autoComplete="off"
-          placeholder="🔍 Buscar produto... (ex: caixote, lajota, 14x19x29)"
+          placeholder="Buscar produto... (ex: caixote, lajota, 14x19x29)"
           value={busca}
           onChange={e => setBusca(e.target.value)}
         />
@@ -85,13 +91,13 @@ export function Catalogo({
         <div className="vazio erro-carregamento">
           <p>{erroCarregamento}</p>
           <button type="button" className="btn-tentar-novamente" onClick={recarregar}>
-            🔄 Tentar novamente
+            <Icone nome="recarregar" /> Tentar novamente
           </button>
         </div>
       )}
 
       {!carregando && !erroCarregamento && produtosFiltrados.length === 0 && (
-        <p className="vazio">Nenhum produto encontrado. 😕</p>
+        <p className="vazio">Nenhum produto encontrado.</p>
       )}
 
       <div className="grid">
@@ -139,7 +145,7 @@ export function Catalogo({
                   onClick={() => adicionarAoCarrinho(produto)}
                   aria-live="polite"
                 >
-                  {acabouDeAdicionar ? '✓ Adicionado!' : '➕ Adicionar ao orçamento'}
+                  {acabouDeAdicionar ? '✓ Adicionado!' : <><Icone nome="mais" /> Adicionar ao orçamento</>}
                 </button>
               </div>
             </div>

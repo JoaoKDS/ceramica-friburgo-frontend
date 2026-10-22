@@ -1,3 +1,4 @@
+import { Icone } from './Icones'
 export function Header({ totalItens, abrirOrcamento, menuAberto, setMenuAberto }) {
   return (
     <header className="topo">
@@ -14,7 +15,7 @@ export function Header({ totalItens, abrirOrcamento, menuAberto, setMenuAberto }
             onClick={abrirOrcamento}
             aria-label={`Ver orçamento, ${totalItens} itens`}
           >
-            📋 Orçamento ({totalItens})
+            <Icone nome="prancheta" /> Orçamento ({totalItens})
           </button>
 
           <button

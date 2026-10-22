@@ -1,4 +1,5 @@
 import { WHATSAPP_NUMERO } from '../constants'
+import { Icone } from './Icones'
 
 export function WhatsappFlutuante() {
   return (
@@ -9,7 +10,7 @@ export function WhatsappFlutuante() {
       rel="noreferrer"
       aria-label="Abrir conversa no WhatsApp"
     >
-      <span className="whatsapp-icone" aria-hidden="true">💬</span>
+      <span className="whatsapp-icone" aria-hidden="true"><Icone nome="conversa" tamanho="1.5rem" /></span>
       <span className="whatsapp-rotulo">Fale conosco</span>
     </a>
   )

@@ -5,6 +5,7 @@ import {
   PEDIDO_MINIMO_PECAS,
 } from '../constants'
 import { CampoQuantidade } from './CampoQuantidade'
+import { Icone } from './Icones'
 
 const numero = n => n.toLocaleString('pt-BR')
 
@@ -61,7 +62,7 @@ export function PainelOrcamento({
       id="painel-orcamento"
     >
       <div className="painel-topo">
-        <h2>📋 Seu Orçamento</h2>
+        <h2><Icone nome="prancheta" /> Seu Orçamento</h2>
         <button
           type="button"
           className="btn-fechar-painel"
@@ -74,13 +75,13 @@ export function PainelOrcamento({
 
       {carrinho.length > 0 && (
         <p className="aviso-salvamento">
-          💾 Seu orçamento é salvo automaticamente neste navegador — pode
+          <Icone nome="salvo" /> Seu orçamento é salvo automaticamente neste navegador — pode
           fechar e voltar depois que ele continua aqui.
         </p>
       )}
 
       {carrinho.length === 0 ? (
-        <p className="vazio">Seu orçamento está vazio. Adicione produtos abaixo! 👇</p>
+        <p className="vazio">Seu orçamento está vazio. Adicione produtos abaixo.</p>
       ) : (
         <>
           {carrinho.map(item => (
@@ -118,7 +119,7 @@ export function PainelOrcamento({
                 onClick={() => removerDoCarrinho(item.id)}
                 aria-label={`Remover ${item.nome} do orçamento`}
               >
-                🗑️
+                <Icone nome="lixeira" />
               </button>
             </div>
           ))}
@@ -131,7 +132,7 @@ export function PainelOrcamento({
 
           {temGrandeQuantidade && (
             <p className="aviso-milheiro">
-              ⚠️ Você tem itens acima de 1.000 peças — grandes quantidades
+              <Icone nome="aviso" /> Você tem itens acima de 1.000 peças — grandes quantidades
               podem ter condições especiais!
             </p>
           )}
@@ -190,7 +191,7 @@ export function PainelOrcamento({
             />
 
             <button type="button" className="btn-whatsapp" onClick={enviarOrcamentoWhatsApp}>
-              📲 Enviar orçamento pelo WhatsApp
+              <Icone nome="enviar" /> Enviar orçamento pelo WhatsApp
             </button>
           </div>
         </>

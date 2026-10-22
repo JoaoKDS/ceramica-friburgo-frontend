@@ -1,14 +1,8 @@
 import { useState } from 'react'
+import { normalizarFoto } from '../utils/foto'
 
 // Se digitarem só o nome do arquivo ("bloco-baiano.jpg"), completa com a pasta
 // onde ficam as fotos do catálogo (public/produtos).
-export function normalizarFoto(valor) {
-  const texto = valor.trim()
-  if (!texto) return ''
-  if (texto.startsWith('/') || texto.startsWith('http')) return texto
-  return `/produtos/${texto}`
-}
-
 export function FormularioProduto({ produto, categorias, aoSalvar, aoCancelar }) {
   const [nome, setNome] = useState(produto?.nome ?? '')
   const [categoria, setCategoria] = useState(produto?.categoria ?? '')

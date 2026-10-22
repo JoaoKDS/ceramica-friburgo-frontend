@@ -151,6 +151,7 @@ function Site() {
         definirQuantidadeSelecionada={carrinhoHook.definirQuantidadeSelecionada}
         incrementarQuantidadeSelecionada={carrinhoHook.incrementarQuantidadeSelecionada}
         adicionarAoCarrinho={adicionarAoCarrinho}
+        produtos={produtos}
       />
 
       <Faq />

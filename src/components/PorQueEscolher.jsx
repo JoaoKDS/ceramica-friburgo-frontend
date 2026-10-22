@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ANOS_NO_MERCADO } from '../constants'
+import { Icone } from './Icones'
 
 function Contador({ valor }) {
   const [numero, setNumero] = useState(0)
@@ -22,10 +23,10 @@ function Contador({ valor }) {
 }
 
 const MOTIVOS = [
-  { icone: '🧱', texto: 'Qualidade comprovada no mercado' },
-  { icone: '💰', texto: 'Preço justo, direto da fábrica' },
-  { icone: '🚚', texto: 'Entrega na região de Campinas' },
-  { icone: '📲', texto: 'Orçamento em 1 minuto, sem cadastro' },
+  { icone: 'bloco', texto: 'Qualidade comprovada no mercado' },
+  { icone: 'preco', texto: 'Preço justo, direto da fábrica' },
+  { icone: 'caminhao', texto: 'Entrega na região de Campinas' },
+  { icone: 'celular', texto: 'Orçamento em 1 minuto, sem cadastro' },
 ]
 
 // totalProdutos e totalCategorias vêm do catálogo de verdade (App.jsx).
@@ -56,7 +57,7 @@ export function PorQueEscolher({ totalProdutos = 0, totalCategorias = 0 }) {
       <div className="porque-motivos">
         {MOTIVOS.map(motivo => (
           <div className="motivo" key={motivo.texto}>
-            <span className="motivo-icone" aria-hidden="true">{motivo.icone}</span>
+            <span className="motivo-icone" aria-hidden="true"><Icone nome={motivo.icone} /></span>
             <span>{motivo.texto}</span>
           </div>
         ))}
